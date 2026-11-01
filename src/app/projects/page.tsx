@@ -203,17 +203,15 @@ export default function ProjectsPage() {
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-1.5 ${
-                    isActive
+                  className={`px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-1.5 ${isActive
                       ? "bg-[#111111] text-white shadow-xs"
                       : "bg-[#F3F4F6] text-[#4A4A4A] hover:bg-[#E5E7EB] hover:text-[#111111]"
-                  }`}
+                    }`}
                 >
                   <span>{cat}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
-                      isActive ? "bg-white/20 text-white" : "bg-gray-200 text-gray-700"
-                    }`}
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${isActive ? "bg-white/20 text-white" : "bg-gray-200 text-gray-700"
+                      }`}
                   >
                     {count}
                   </span>

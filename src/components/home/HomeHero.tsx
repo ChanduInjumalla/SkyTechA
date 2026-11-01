@@ -66,8 +66,8 @@ export default function HomeHero() {
 
   return (
     <div className="relative w-full bg-[#F8F9FA]">
-      {/* 1. Full-Viewport Livspace Hero Banner */}
-      <section className="relative w-full h-[calc(100dvh-64px)] sm:h-[calc(100dvh-72px)] lg:h-[calc(100dvh-112px)] min-h-[480px] sm:min-h-[580px] overflow-hidden bg-gray-900 select-none">
+      {/* 1. 60-65 Viewport Height Livspace Hero Banner */}
+      <section className="relative w-full h-[62vh] sm:h-[65vh] min-h-[420px] max-h-[620px] overflow-hidden bg-gray-900 select-none">
         {/* Background Image Carousel with Smooth Fade */}
         {HERO_SLIDES.map((slide, idx) => (
           <div
@@ -86,21 +86,21 @@ export default function HomeHero() {
           </div>
         ))}
 
-        {/* Content Container (Positioned down in the lower section matching Livspace) */}
-        <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-center text-center pb-14 sm:pb-24 lg:pb-28">
-          <div className="max-w-4xl w-full space-y-5 sm:space-y-8">
+        {/* Content Container (Positioned comfortably in lower section) */}
+        <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-center text-center pb-8 sm:pb-12 md:pb-14">
+          <div className="max-w-4xl w-full space-y-3.5 sm:space-y-5">
             {/* Main Punchy H1 (Semantic SEO - Exact Livspace Style) */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight drop-shadow-md break-words leading-tight px-2 max-w-[95vw] sm:max-w-[92vw] mx-auto">
+            <h1 className="text-xl sm:text-3xl md:text-5xl font-display font-extrabold text-white tracking-tight drop-shadow-md break-words leading-tight px-2 max-w-[95vw] sm:max-w-[90vw] mx-auto">
               {activeSlide.heading}
             </h1>
 
             {/* Single Red Cylinder CTA Button (Exact Livspace Style) */}
-            <div className="pt-1 sm:pt-2 flex items-center justify-center">
+            <div className="pt-1 flex items-center justify-center">
               <Button
                 variant="primary"
                 size="lg"
                 href={activeSlide.ctaHref}
-                className="bg-[#E23744] hover:bg-[#C92531] text-white font-bold px-7 sm:px-10 py-3 sm:py-4 rounded-full text-xs sm:text-sm shadow-xl tracking-wider uppercase transition-transform hover:scale-105 active:scale-95 w-full max-w-[280px] sm:w-auto"
+                className="bg-[#E23744] hover:bg-[#C92531] text-white font-bold px-7 sm:px-9 py-2.5 sm:py-3.5 rounded-full text-xs sm:text-sm shadow-xl tracking-wider uppercase transition-transform hover:scale-105 active:scale-95 w-auto"
               >
                 {activeSlide.ctaText}
               </Button>
@@ -108,24 +108,24 @@ export default function HomeHero() {
           </div>
         </div>
 
-        {/* Carousel Arrow Controls (Livspace Circular Buttons - Hidden on Mobile for clean touch experience) */}
+        {/* Carousel Arrow Controls (Visible on mobile, tablet & desktop) */}
         <button
           onClick={prevSlide}
           aria-label="Previous slide"
-          className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-gray-800 items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          className="flex absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/85 hover:bg-white text-gray-900 items-center justify-center shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-xs"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
         <button
           onClick={nextSlide}
           aria-label="Next slide"
-          className="hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-gray-800 items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          className="flex absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/85 hover:bg-white text-gray-900 items-center justify-center shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-xs"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {/* Carousel Indicator Dots */}
-        <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+        <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
           {HERO_SLIDES.map((_, idx) => (
             <button
               key={idx}
@@ -133,8 +133,8 @@ export default function HomeHero() {
               aria-label={`Go to slide ${idx + 1}`}
               className={`transition-all duration-300 rounded-full cursor-pointer ${
                 idx === currentSlide
-                  ? "w-8 h-2.5 bg-[#E23744]"
-                  : "w-2.5 h-2.5 bg-white/60 hover:bg-white"
+                  ? "w-7 h-2 bg-[#E23744]"
+                  : "w-2 h-2 bg-white/60 hover:bg-white"
               }`}
             />
           ))}

@@ -39,3 +39,4 @@ export function BrandBadge({ size = "md", className = "" }: BrandBadgeProps) {
 }
 
 export default BrandBadge;
+

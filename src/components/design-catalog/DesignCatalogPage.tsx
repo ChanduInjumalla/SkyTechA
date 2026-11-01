@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import Link from "next/link";
 import {
   Heart,
@@ -89,22 +89,21 @@ export default function DesignCatalogPage({ catalog }: Props) {
     );
   }, [catalog.designs, activeFilter]);
 
+  const trendingScrollRef = useRef<HTMLDivElement>(null);
+
   const handleOpenModal = (design: DesignItem, mode: "consultation" | "quote") => {
     setSelectedDesign(design);
     setModalMode(mode);
     setModalOpen(true);
   };
 
-  const handleTrendingNext = () => {
-    setTrendingSlideIndex((prev) =>
-      prev + 1 >= catalog.trendingDesigns.length ? 0 : prev + 1
-    );
-  };
-
-  const handleTrendingPrev = () => {
-    setTrendingSlideIndex((prev) =>
-      prev - 1 < 0 ? catalog.trendingDesigns.length - 1 : prev - 1
-    );
+  const handleTrendingScroll = (direction: "left" | "right") => {
+    if (!trendingScrollRef.current) return;
+    const scrollAmount = 310;
+    trendingScrollRef.current.scrollBy({
+      left: direction === "right" ? scrollAmount : -scrollAmount,
+      behavior: "smooth",
+    });
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -209,33 +208,36 @@ export default function DesignCatalogPage({ catalog }: Props) {
               </div>
             </div>
 
-            {/* Desktop / Tablet Prev-Next Arrows */}
+            {/* Desktop / Mobile Prev-Next Scroll Arrows */}
             <div className="flex items-center gap-2 self-end sm:self-center">
               <button
                 type="button"
-                onClick={handleTrendingPrev}
-                className="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-[#E23744] hover:text-[#E23744] flex items-center justify-center transition-colors shadow-xs"
-                aria-label="Previous trending design"
+                onClick={() => handleTrendingScroll("left")}
+                className="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-[#E23744] hover:text-[#E23744] flex items-center justify-center transition-colors shadow-xs cursor-pointer active:scale-95"
+                aria-label="Scroll left"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 type="button"
-                onClick={handleTrendingNext}
-                className="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-[#E23744] hover:text-[#E23744] flex items-center justify-center transition-colors shadow-xs"
-                aria-label="Next trending design"
+                onClick={() => handleTrendingScroll("right")}
+                className="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-[#E23744] hover:text-[#E23744] flex items-center justify-center transition-colors shadow-xs cursor-pointer active:scale-95"
+                aria-label="Scroll right"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          {/* Trending Cards Grid (3 cards desktop, carousel on mobile) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {catalog.trendingDesigns.map((trend, idx) => (
+          {/* Trending Cards Horizontal Scroll Carousel (Matching Homepage Section 2) */}
+          <div
+            ref={trendingScrollRef}
+            className="flex gap-4 overflow-x-auto scroll-smooth py-1 px-0.5 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {catalog.trendingDesigns.map((trend) => (
               <div
                 key={trend.id}
-                className="group relative bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col"
+                className="group snap-start shrink-0 w-[265px] sm:w-[290px] md:w-[320px] relative bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
                   <img
@@ -276,7 +278,7 @@ export default function DesignCatalogPage({ catalog }: Props) {
                           "consultation"
                         )
                       }
-                      className="text-xs font-semibold text-[#1F1F1F] hover:text-[#E23744] flex items-center gap-0.5"
+                      className="text-xs font-semibold text-[#1F1F1F] hover:text-[#E23744] flex items-center gap-0.5 cursor-pointer"
                     >
                       Enquire <ChevronRight className="w-3.5 h-3.5" />
                     </button>

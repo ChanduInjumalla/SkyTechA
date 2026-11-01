@@ -14,15 +14,16 @@ import { BUSINESS_INFO, CONTACT_LINKS } from "@/content/business";
 import {
   X,
   ChevronDown,
+  ChevronRight,
   Phone,
   MessageSquare,
   MapPin,
   Sparkles,
-  Wrench,
+  Layers,
   Calculator,
-  FolderKanban,
-  MoreHorizontal,
-  Home,
+  Building2,
+  Eye,
+  Info,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { BrandBadge } from "@/components/ui/BrandLogo";
@@ -34,12 +35,12 @@ interface MobileDrawerProps {
 
 export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const [openSection, setOpenSection] = useState<
-    "design" | "services" | "calculators" | "more" | null
-  >("design");
+    "design" | "windows" | "calculators" | "more" | null
+  >(null);
 
   if (!isOpen) return null;
 
-  const toggleSection = (section: "design" | "services" | "calculators" | "more") => {
+  const toggleSection = (section: "design" | "windows" | "calculators" | "more") => {
     setOpenSection(openSection === section ? null : section);
   };
 
@@ -58,11 +59,11 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       {/* Drawer Panel */}
       <div className="relative ml-auto w-full max-w-sm sm:max-w-md bg-white h-full flex flex-col shadow-2xl z-50 text-[#1F1F1F]">
         {/* Drawer Header */}
-        <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 border-b border-gray-100 bg-white">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-white">
           <Link href="/" onClick={onClose} className="select-none flex items-center gap-2.5 group">
             <BrandBadge size="sm" />
             <div>
-              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-[#1F1F1F] block leading-tight">
+              <span className="font-display font-extrabold text-lg tracking-tight text-[#1F1F1F] block leading-tight">
                 SkyTech <span className="text-[#E23744]">Aluminium</span>
               </span>
               <span className="block text-[10px] text-gray-500 font-medium">
@@ -80,83 +81,24 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         </div>
 
         {/* Scrollable Navigation Body */}
-        <div className="flex-1 overflow-y-auto px-4 sm:px-5 py-4 space-y-4">
-          {/* Quick Category Action Cards (LivSpace Mobile Grid) */}
-          <div className="grid grid-cols-2 gap-2">
-            <Link
-              href="/design-ideas"
-              onClick={onClose}
-              className="flex flex-col p-3 bg-[#FAFBFB] hover:bg-[#FDF2F3] rounded-xl border border-gray-100 transition-colors group"
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <Sparkles className="w-4 h-4 text-[#E23744]" />
-                <span className="text-[10px] font-bold text-gray-400 uppercase">Explore</span>
-              </div>
-              <span className="text-xs font-bold text-[#1F1F1F] group-hover:text-[#E23744] transition-colors leading-tight">
-                Design Ideas
-              </span>
-              <span className="text-[10px] text-gray-500 mt-0.5">25+ Room Layouts</span>
-            </Link>
-
-            <Link
-              href="/price-calculators"
-              onClick={onClose}
-              className="flex flex-col p-3 bg-[#FAFBFB] hover:bg-[#FDF2F3] rounded-xl border border-gray-100 transition-colors group"
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <Calculator className="w-4 h-4 text-[#E23744]" />
-                <span className="text-[10px] font-bold text-[#0D7A68] bg-[#E6F4F1] px-1.5 py-0.2 rounded">Instant</span>
-              </div>
-              <span className="text-xs font-bold text-[#1F1F1F] group-hover:text-[#E23744] transition-colors leading-tight">
-                Cost Estimator
-              </span>
-              <span className="text-[10px] text-gray-500 mt-0.5">3D BOM Pricing</span>
-            </Link>
-
-            <Link
-              href="/projects"
-              onClick={onClose}
-              className="flex flex-col p-3 bg-[#FAFBFB] hover:bg-[#FDF2F3] rounded-xl border border-gray-100 transition-colors group"
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <FolderKanban className="w-4 h-4 text-[#E23744]" />
-                <span className="text-[10px] font-bold text-gray-400 uppercase">Verified</span>
-              </div>
-              <span className="text-xs font-bold text-[#1F1F1F] group-hover:text-[#E23744] transition-colors leading-tight">
-                Real Projects
-              </span>
-              <span className="text-[10px] text-gray-500 mt-0.5">Hyderabad Sites</span>
-            </Link>
-
-            <Link
-              href="/3d-visualization"
-              onClick={onClose}
-              className="flex flex-col p-3 bg-[#FAFBFB] hover:bg-[#FDF2F3] rounded-xl border border-gray-100 transition-colors group"
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <Home className="w-4 h-4 text-[#E23744]" />
-                <span className="text-[10px] font-bold text-gray-400 uppercase">3D</span>
-              </div>
-              <span className="text-xs font-bold text-[#1F1F1F] group-hover:text-[#E23744] transition-colors leading-tight">
-                Walkthroughs
-              </span>
-              <span className="text-[10px] text-gray-500 mt-0.5">Render Gallery</span>
-            </Link>
-          </div>
-
-          {/* Accordion Categories */}
-          <div className="space-y-2 border-t border-gray-100 pt-3">
-            {/* 1. Design Ideas Accordion */}
-            <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-2xs">
+        <div className="flex-1 overflow-y-auto px-5 py-4 divide-y divide-gray-100">
+          
+          {/* Main Navigation Rows */}
+          <div className="py-2 space-y-1">
+            {/* 1. Design Ideas Dropdown */}
+            <div>
               <button
                 type="button"
                 onClick={() => toggleSection("design")}
-                className="w-full flex items-center justify-between px-4 py-3 text-left font-semibold text-sm text-[#1F1F1F] hover:bg-gray-50 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between py-3 text-left font-semibold text-[15px] text-[#1F1F1F] hover:text-[#E23744] transition-colors cursor-pointer"
                 aria-expanded={openSection === "design"}
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <Sparkles className="w-4 h-4 text-[#E23744]" />
-                  <span>Design Ideas ({allDesignIdeas.length})</span>
+                  <span>Design Ideas</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FDF2F3] text-[#E23744]">
+                    25+ Rooms
+                  </span>
                 </div>
                 <ChevronDown
                   className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
@@ -166,13 +108,13 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               </button>
 
               {openSection === "design" && (
-                <div className="px-3 pb-3 pt-1 border-t border-gray-50 space-y-1 bg-[#FAFBFB] max-h-64 overflow-y-auto">
+                <div className="pl-6 pb-3 pt-1 space-y-1.5 border-l-2 border-[#E23744]/20 ml-2 max-h-72 overflow-y-auto">
                   {allDesignIdeas.map((item, idx) => (
                     <Link
                       key={idx}
                       href={item.href}
                       onClick={onClose}
-                      className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 hover:text-[#E23744] hover:bg-white transition-colors"
+                      className="block py-1.5 text-xs font-medium text-gray-700 hover:text-[#E23744] transition-colors"
                     >
                       {item.title}
                     </Link>
@@ -181,37 +123,37 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               )}
             </div>
 
-            {/* 2. Services & Products Accordion */}
-            <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-2xs">
+            {/* 2. Windows, Doors & Glass Systems Dropdown */}
+            <div>
               <button
                 type="button"
-                onClick={() => toggleSection("services")}
-                className="w-full flex items-center justify-between px-4 py-3 text-left font-semibold text-sm text-[#1F1F1F] hover:bg-gray-50 transition-colors cursor-pointer"
-                aria-expanded={openSection === "services"}
+                onClick={() => toggleSection("windows")}
+                className="w-full flex items-center justify-between py-3 text-left font-semibold text-[15px] text-[#1F1F1F] hover:text-[#E23744] transition-colors cursor-pointer"
+                aria-expanded={openSection === "windows"}
               >
-                <div className="flex items-center gap-2">
-                  <Wrench className="w-4 h-4 text-[#E23744]" />
-                  <span>Windows &amp; Systems ({allServices.length})</span>
+                <div className="flex items-center gap-2.5">
+                  <Layers className="w-4 h-4 text-[#E23744]" />
+                  <span>Windows &amp; Systems</span>
                 </div>
                 <ChevronDown
                   className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                    openSection === "services" ? "rotate-180 text-[#E23744]" : ""
+                    openSection === "windows" ? "rotate-180 text-[#E23744]" : ""
                   }`}
                 />
               </button>
 
-              {openSection === "services" && (
-                <div className="px-3 pb-3 pt-1 border-t border-gray-50 space-y-1 bg-[#FAFBFB] max-h-64 overflow-y-auto">
+              {openSection === "windows" && (
+                <div className="pl-6 pb-3 pt-1 space-y-1.5 border-l-2 border-[#E23744]/20 ml-2 max-h-72 overflow-y-auto">
                   {allServices.map((item, idx) => (
                     <Link
                       key={idx}
                       href={item.href}
                       onClick={onClose}
-                      className="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 hover:text-[#E23744] hover:bg-white transition-colors"
+                      className="flex items-center justify-between py-1.5 text-xs font-medium text-gray-700 hover:text-[#E23744] transition-colors pr-2"
                     >
                       <span>{item.title}</span>
                       {item.badge && (
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 bg-[#FDF2F3] text-[#E23744] rounded-full">
+                        <span className="text-[9px] font-bold px-1.5 py-0.2 bg-[#FDF2F3] text-[#E23744] rounded-full">
                           {item.badge}
                         </span>
                       )}
@@ -221,17 +163,17 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               )}
             </div>
 
-            {/* 3. Cost Estimators & Pricing Accordion */}
-            <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-2xs">
+            {/* 3. Cost Estimators & Pricing Dropdown */}
+            <div>
               <button
                 type="button"
                 onClick={() => toggleSection("calculators")}
-                className="w-full flex items-center justify-between px-4 py-3 text-left font-semibold text-sm text-[#1F1F1F] hover:bg-gray-50 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between py-3 text-left font-semibold text-[15px] text-[#1F1F1F] hover:text-[#E23744] transition-colors cursor-pointer"
                 aria-expanded={openSection === "calculators"}
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <Calculator className="w-4 h-4 text-[#E23744]" />
-                  <span>Price Calculators &amp; Offerings</span>
+                  <span>Price Calculators &amp; BOM</span>
                 </div>
                 <ChevronDown
                   className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
@@ -241,13 +183,13 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               </button>
 
               {openSection === "calculators" && (
-                <div className="px-3 pb-3 pt-1 border-t border-gray-50 space-y-1 bg-[#FAFBFB]">
+                <div className="pl-6 pb-3 pt-1 space-y-1.5 border-l-2 border-[#E23744]/20 ml-2">
                   {PRICE_CALCULATOR_LINKS.map((item, idx) => (
                     <Link
                       key={idx}
                       href={item.href}
                       onClick={onClose}
-                      className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 hover:text-[#E23744] hover:bg-white transition-colors"
+                      className="block py-1.5 text-xs font-medium text-gray-700 hover:text-[#E23744] transition-colors"
                     >
                       {item.title}
                     </Link>
@@ -255,7 +197,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   <Link
                     href="/#how-it-works"
                     onClick={onClose}
-                    className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 hover:text-[#E23744] hover:bg-white transition-colors"
+                    className="block py-1.5 text-xs font-medium text-gray-700 hover:text-[#E23744] transition-colors"
                   >
                     The Modular Journey &amp; Process
                   </Link>
@@ -263,16 +205,42 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               )}
             </div>
 
-            {/* 4. Company & Fabrication Hub Accordion */}
-            <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-2xs">
+            {/* 4. Projects (Direct Link) */}
+            <Link
+              href="/projects"
+              onClick={onClose}
+              className="flex items-center justify-between py-3 text-[15px] font-semibold text-[#1F1F1F] hover:text-[#E23744] transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <Building2 className="w-4 h-4 text-[#E23744]" />
+                <span>Homes By Sky Tech (Projects)</span>
+              </div>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+            </Link>
+
+            {/* 5. 3D Visualization & Gallery (Direct Link) */}
+            <Link
+              href="/3d-visualization"
+              onClick={onClose}
+              className="flex items-center justify-between py-3 text-[15px] font-semibold text-[#1F1F1F] hover:text-[#E23744] transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <Eye className="w-4 h-4 text-[#E23744]" />
+                <span>3D Visualization &amp; Gallery</span>
+              </div>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+            </Link>
+
+            {/* 6. Company & Workshop Dropdown */}
+            <div>
               <button
                 type="button"
                 onClick={() => toggleSection("more")}
-                className="w-full flex items-center justify-between px-4 py-3 text-left font-semibold text-sm text-[#1F1F1F] hover:bg-gray-50 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between py-3 text-left font-semibold text-[15px] text-[#1F1F1F] hover:text-[#E23744] transition-colors cursor-pointer"
                 aria-expanded={openSection === "more"}
               >
-                <div className="flex items-center gap-2">
-                  <MoreHorizontal className="w-4 h-4 text-[#E23744]" />
+                <div className="flex items-center gap-2.5">
+                  <Info className="w-4 h-4 text-[#E23744]" />
                   <span>Company &amp; Workshop</span>
                 </div>
                 <ChevronDown
@@ -283,20 +251,15 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               </button>
 
               {openSection === "more" && (
-                <div className="px-3 pb-3 pt-1 border-t border-gray-50 space-y-1 bg-[#FAFBFB]">
+                <div className="pl-6 pb-3 pt-1 space-y-1.5 border-l-2 border-[#E23744]/20 ml-2">
                   {MORE_DROPDOWN_LINKS.map((item, idx) => (
                     <Link
                       key={idx}
                       href={item.href}
                       onClick={onClose}
-                      className="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 hover:text-[#E23744] hover:bg-white transition-colors"
+                      className="block py-1.5 text-xs font-medium text-gray-700 hover:text-[#E23744] transition-colors"
                     >
-                      <span>{item.title}</span>
-                      {item.badge && (
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 bg-[#E23744] text-white rounded-full">
-                          {item.badge}
-                        </span>
-                      )}
+                      {item.title}
                     </Link>
                   ))}
                 </div>
@@ -305,16 +268,18 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           </div>
 
           {/* Quick NAP Details */}
-          <div className="p-3.5 bg-gray-50 border border-gray-100 rounded-xl text-xs space-y-1.5 text-gray-600">
-            <div className="flex items-start gap-2">
+          <div className="pt-4 pb-2">
+            <div className="flex items-start gap-2 text-xs text-gray-600">
               <MapPin className="w-3.5 h-3.5 text-[#E23744] shrink-0 mt-0.5" />
-              <p className="text-[11px] leading-relaxed">
-                {BUSINESS_INFO.address.full}
-              </p>
+              <div>
+                <p className="text-[11px] leading-relaxed">
+                  {BUSINESS_INFO.address.full}
+                </p>
+                <p className="text-[11px] font-semibold text-[#1F1F1F] mt-1">
+                  Proprietor: {BUSINESS_INFO.owner}
+                </p>
+              </div>
             </div>
-            <p className="text-[11px] font-medium text-gray-700 pl-5.5">
-              Proprietor: <span className="font-bold text-[#1F1F1F]">{BUSINESS_INFO.owner}</span>
-            </p>
           </div>
         </div>
 
