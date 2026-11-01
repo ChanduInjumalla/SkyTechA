@@ -72,9 +72,8 @@ export default function HomeHero() {
         {HERO_SLIDES.map((slide, idx) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+              }`}
           >
             <div
               className="absolute inset-0 bg-cover bg-center transform transition-transform duration-7000 ease-out scale-105"
@@ -131,27 +130,14 @@ export default function HomeHero() {
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`transition-all duration-300 rounded-full cursor-pointer ${
-                idx === currentSlide
+              className={`transition-all duration-300 rounded-full cursor-pointer ${idx === currentSlide
                   ? "w-7 h-2 bg-[#E23744]"
                   : "w-2 h-2 bg-white/60 hover:bg-white"
-              }`}
+                }`}
             />
           ))}
         </div>
       </section>
-
-      {/* Floating Direct WhatsApp Action Button (Livspace Signature - Desktop & Tablet) */}
-      <a
-        href={CONTACT_LINKS.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Direct WhatsApp Chat with Yousuf Shaik"
-        className="hidden sm:flex fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform group"
-      >
-        <MessageSquare className="w-7 h-7" />
-        <span className="sr-only">Chat on WhatsApp</span>
-      </a>
     </div>
   );
 }

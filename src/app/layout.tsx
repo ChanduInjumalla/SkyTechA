@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -77,6 +78,9 @@ export default function RootLayout({
 
         {/* Global Architectural Footer */}
         <Footer />
+
+        {/* Global Floating WhatsApp Contact Action */}
+        <FloatingWhatsApp />
       </body>
     </html>
   );
