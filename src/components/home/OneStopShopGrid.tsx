@@ -126,7 +126,7 @@ export default function OneStopShopGrid() {
 
         {/* Carousel Container with Circular Floating Arrow Controls */}
         <div className="relative group/carousel">
-          {/* Circular Left Arrow Button (Appears when scrolled right) */}
+          {/* Circular Left Arrow Button (Desktop & Tablet) */}
           <button
             type="button"
             onClick={(e) => {
@@ -135,14 +135,14 @@ export default function OneStopShopGrid() {
               handleScroll("left");
             }}
             aria-label="Scroll left"
-            className={`absolute -left-3 sm:-left-5 top-[40%] -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center justify-center text-[#222222] hover:text-black hover:scale-105 active:scale-95 transition-all cursor-pointer ${
+            className={`hidden md:flex absolute -left-3 sm:-left-5 top-[40%] -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-gray-100 items-center justify-center text-[#222222] hover:text-black hover:scale-105 active:scale-95 transition-all cursor-pointer ${
               canScrollLeft ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             }`}
           >
             <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
           </button>
 
-          {/* Circular Right Arrow Button (Matching Screenshots 1 & 2) */}
+          {/* Circular Right Arrow Button (Desktop & Tablet) */}
           <button
             type="button"
             onClick={(e) => {
@@ -151,7 +151,7 @@ export default function OneStopShopGrid() {
               handleScroll("right");
             }}
             aria-label="Scroll right"
-            className={`absolute -right-3 sm:-right-5 top-[40%] -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center justify-center text-[#222222] hover:text-black hover:scale-105 active:scale-95 transition-all cursor-pointer ${
+            className={`hidden md:flex absolute -right-3 sm:-right-5 top-[40%] -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-gray-100 items-center justify-center text-[#222222] hover:text-black hover:scale-105 active:scale-95 transition-all cursor-pointer ${
               canScrollRight ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             }`}
           >
@@ -161,16 +161,16 @@ export default function OneStopShopGrid() {
           {/* Cards Horizontal Scroll Track */}
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth py-2 px-1 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-3.5 sm:gap-5 overflow-x-auto scroll-smooth py-2 px-1 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {CAROUSEL_CARDS.map((card) => (
               <Link
                 key={card.id}
                 href={card.href}
-                className="group snap-start shrink-0 w-[260px] sm:w-[275px] lg:w-[280px] bg-white rounded-xl border border-gray-100 shadow-[0_2px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.09)] transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-0.5 cursor-pointer"
+                className="group snap-start shrink-0 w-[240px] sm:w-[270px] lg:w-[280px] bg-white rounded-xl border border-gray-100 shadow-[0_2px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.09)] transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-0.5 cursor-pointer"
               >
                 {/* Image Section (Clean Proportion) */}
-                <div className="relative h-44 sm:h-48 md:h-50 w-full overflow-hidden bg-gray-100">
+                <div className="relative h-40 sm:h-48 md:h-50 w-full overflow-hidden bg-gray-100">
                   <img
                     src={card.image}
                     alt={card.title}

@@ -128,46 +128,46 @@ export default function DesignInspirationGallery() {
     <section className="pt-4 sm:pt-6 pb-10 sm:pb-14 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header Row (Exact Livspace Clone) */}
-        <div className="flex items-end justify-between mb-5 sm:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 sm:gap-4 mb-5 sm:mb-6">
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#1F1F1F] tracking-tight font-display">
+            <h2 className="text-xl sm:text-3xl lg:text-[32px] font-bold text-[#1F1F1F] tracking-tight font-display leading-snug">
               Inspiration for home interior designs
             </h2>
-            <p className="text-sm sm:text-[15px] text-[#666666] mt-1 font-body">
+            <p className="text-xs sm:text-[15px] text-[#666666] mt-1 font-body">
               Give your home a new look with these interior design ideas curated for you
             </p>
           </div>
 
           <Link
             href="/design-ideas"
-            className="group flex items-center gap-1 text-sm sm:text-base font-semibold text-[#E23744] hover:text-[#C92531] transition-colors shrink-0 select-none pb-1"
+            className="group inline-flex items-center gap-1 text-xs sm:text-base font-semibold text-[#E23744] hover:text-[#C92531] transition-colors shrink-0 select-none pb-0.5 sm:pb-1"
           >
             <span>View All</span>
-            <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            <ArrowIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
 
         {/* Gallery Carousel Container */}
         <div className="relative group/carousel">
-          {/* Left Arrow Button */}
+          {/* Left Arrow Button (Desktop & Tablet) */}
           {canScrollLeft && (
             <button
               type="button"
               onClick={() => handleScroll("left")}
               aria-label="Scroll left"
-              className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-gray-800 shadow-[0_4px_18px_rgba(0,0,0,0.18)] hover:shadow-[0_6px_22px_rgba(0,0,0,0.25)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer border border-gray-100"
+              className="hidden md:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-gray-800 shadow-[0_4px_18px_rgba(0,0,0,0.18)] hover:shadow-[0_6px_22px_rgba(0,0,0,0.25)] items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer border border-gray-100"
             >
               <ChevronLeft className="w-5 h-5 text-gray-700" />
             </button>
           )}
 
-          {/* Right Arrow Button */}
+          {/* Right Arrow Button (Desktop & Tablet) */}
           {canScrollRight && (
             <button
               type="button"
               onClick={() => handleScroll("right")}
               aria-label="Scroll right"
-              className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-gray-800 shadow-[0_4px_18px_rgba(0,0,0,0.18)] hover:shadow-[0_6px_22px_rgba(0,0,0,0.25)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer border border-gray-100"
+              className="hidden md:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-gray-800 shadow-[0_4px_18px_rgba(0,0,0,0.18)] hover:shadow-[0_6px_22px_rgba(0,0,0,0.25)] items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer border border-gray-100"
             >
               <ChevronRight className="w-5 h-5 text-gray-700" />
             </button>
@@ -177,20 +177,19 @@ export default function DesignInspirationGallery() {
           <div
             id="inspiration-scroll-container"
             ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-none flex flex-col gap-3.5 sm:gap-4 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth select-none"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="overflow-x-auto scrollbar-none flex flex-col gap-3 sm:gap-4 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {/* Row 1 */}
-            <div className="flex gap-3.5 sm:gap-4 shrink-0">
+            <div className="flex gap-3 sm:gap-4 shrink-0">
               {ROW_1_ITEMS.map((item) => (
                 <Link
                   key={item.id}
                   href={item.href}
                   className={`group relative rounded-lg sm:rounded-xl overflow-hidden bg-gray-100 shrink-0 block cursor-pointer transition-transform duration-300 ${
                     item.isWide
-                      ? "w-[360px] sm:w-[540px] md:w-[680px]"
-                      : "w-[220px] sm:w-[270px] md:w-[320px]"
-                  } h-[200px] sm:h-[280px] md:h-[340px]`}
+                      ? "w-[270px] sm:w-[480px] md:w-[640px]"
+                      : "w-[190px] sm:w-[260px] md:w-[320px]"
+                  } h-[175px] sm:h-[260px] md:h-[340px]`}
                 >
                   <img
                     src={item.image}
@@ -202,8 +201,8 @@ export default function DesignInspirationGallery() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
                   {/* Room Label Badge (Livspace Clone) */}
-                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
-                    <span className="inline-block bg-black/60 backdrop-blur-xs text-white text-[11px] sm:text-[13px] font-medium px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-md shadow-xs">
+                  <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-10">
+                    <span className="inline-block bg-black/60 backdrop-blur-xs text-white text-[10px] sm:text-[13px] font-medium px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-md shadow-xs">
                       {item.title}
                     </span>
                   </div>
@@ -212,16 +211,16 @@ export default function DesignInspirationGallery() {
             </div>
 
             {/* Row 2 */}
-            <div className="flex gap-3.5 sm:gap-4 shrink-0">
+            <div className="flex gap-3 sm:gap-4 shrink-0">
               {ROW_2_ITEMS.map((item) => (
                 <Link
                   key={item.id}
                   href={item.href}
                   className={`group relative rounded-lg sm:rounded-xl overflow-hidden bg-gray-100 shrink-0 block cursor-pointer transition-transform duration-300 ${
                     item.isWide
-                      ? "w-[360px] sm:w-[540px] md:w-[680px]"
-                      : "w-[220px] sm:w-[270px] md:w-[320px]"
-                  } h-[200px] sm:h-[280px] md:h-[340px]`}
+                      ? "w-[270px] sm:w-[480px] md:w-[640px]"
+                      : "w-[190px] sm:w-[260px] md:w-[320px]"
+                  } h-[175px] sm:h-[260px] md:h-[340px]`}
                 >
                   <img
                     src={item.image}

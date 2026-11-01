@@ -66,8 +66,8 @@ export default function HomeHero() {
 
   return (
     <div className="relative w-full bg-[#F8F9FA]">
-      {/* 1. Full-Viewport Livspace Hero Banner (100% Viewport Height) */}
-      <section className="relative w-full h-[calc(100dvh-72px)] lg:h-[calc(100dvh-112px)] min-h-[580px] overflow-hidden bg-gray-900 select-none">
+      {/* 1. Full-Viewport Livspace Hero Banner */}
+      <section className="relative w-full h-[calc(100dvh-64px)] sm:h-[calc(100dvh-72px)] lg:h-[calc(100dvh-112px)] min-h-[480px] sm:min-h-[580px] overflow-hidden bg-gray-900 select-none">
         {/* Background Image Carousel with Smooth Fade */}
         {HERO_SLIDES.map((slide, idx) => (
           <div
@@ -87,20 +87,20 @@ export default function HomeHero() {
         ))}
 
         {/* Content Container (Positioned down in the lower section matching Livspace) */}
-        <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-center text-center pb-20 sm:pb-24 lg:pb-28">
-          <div className="max-w-4xl w-full space-y-6 sm:space-y-8">
+        <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-center text-center pb-14 sm:pb-24 lg:pb-28">
+          <div className="max-w-4xl w-full space-y-5 sm:space-y-8">
             {/* Main Punchy H1 (Semantic SEO - Exact Livspace Style) */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold text-white tracking-tight drop-shadow-md break-words leading-tight px-2 max-w-[92vw] mx-auto">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight drop-shadow-md break-words leading-tight px-2 max-w-[95vw] sm:max-w-[92vw] mx-auto">
               {activeSlide.heading}
             </h1>
 
             {/* Single Red Cylinder CTA Button (Exact Livspace Style) */}
-            <div className="pt-2 flex items-center justify-center">
+            <div className="pt-1 sm:pt-2 flex items-center justify-center">
               <Button
                 variant="primary"
                 size="lg"
                 href={activeSlide.ctaHref}
-                className="bg-[#E23744] hover:bg-[#C92531] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm shadow-xl tracking-wider uppercase transition-transform hover:scale-105 active:scale-95"
+                className="bg-[#E23744] hover:bg-[#C92531] text-white font-bold px-7 sm:px-10 py-3 sm:py-4 rounded-full text-xs sm:text-sm shadow-xl tracking-wider uppercase transition-transform hover:scale-105 active:scale-95 w-full max-w-[280px] sm:w-auto"
               >
                 {activeSlide.ctaText}
               </Button>
@@ -141,13 +141,13 @@ export default function HomeHero() {
         </div>
       </section>
 
-      {/* Floating Direct WhatsApp Action Button (Livspace Signature) */}
+      {/* Floating Direct WhatsApp Action Button (Livspace Signature - Desktop & Tablet) */}
       <a
         href={CONTACT_LINKS.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Direct WhatsApp Chat with Yousuf Shaik"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform group"
+        className="hidden sm:flex fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform group"
       >
         <MessageSquare className="w-7 h-7" />
         <span className="sr-only">Chat on WhatsApp</span>

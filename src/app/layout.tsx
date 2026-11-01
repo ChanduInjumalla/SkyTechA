@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MobileBottomBar from "@/components/layout/MobileBottomBar";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -71,9 +72,12 @@ export default function RootLayout({
         <Header />
 
         {/* Main Content Area */}
-        <main id="main-content" className="flex-1 flex flex-col">
+        <main id="main-content" className="flex-1 flex flex-col pb-16 sm:pb-0">
           {children}
         </main>
+
+        {/* Mobile Persistent Floating Bottom Action Bar */}
+        <MobileBottomBar />
 
         {/* Global Architectural Footer */}
         <Footer />

@@ -137,18 +137,18 @@ export default function PriceEstimatorSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header: Distinct, Architectural, Editorial */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#E23744] bg-[#FFF1F2] border border-[#FFE4E6] mb-4 shadow-2xs">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#E23744] bg-[#FFF1F2] border border-[#FFE4E6] mb-3 sm:mb-4 shadow-2xs">
             <Calculator className="w-3.5 h-3.5 text-[#E23744]" />
             <span>Cost Intelligence &amp; Estimator</span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-2.5 text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#111111] font-display tracking-tight leading-tight">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-1 sm:gap-x-2.5 text-xl sm:text-3xl md:text-4xl font-extrabold text-[#111111] font-display tracking-tight leading-tight">
             <span>Calculate Your Estimate For</span>
-            <div className="relative inline-flex items-center h-10 sm:h-12 overflow-hidden align-middle min-w-[280px] sm:min-w-[340px] md:min-w-[380px] text-left">
+            <div className="relative inline-flex items-center justify-center sm:justify-start h-8 sm:h-12 overflow-hidden align-middle w-full sm:w-auto min-w-[220px] sm:min-w-[340px] md:min-w-[380px] text-center sm:text-left">
               {/* Active Category */}
               <div
-                className="absolute left-0 top-0 w-full h-full flex items-center text-[#E23744] font-extrabold whitespace-nowrap"
+                className="absolute left-0 top-0 w-full h-full flex items-center justify-center sm:justify-start text-[#E23744] font-extrabold whitespace-nowrap text-xl sm:text-3xl md:text-4xl"
                 style={{
                   transform: isRotating ? "translateY(-100%) rotateX(45deg)" : "translateY(0%) rotateX(0deg)",
                   opacity: isRotating ? 0 : 1,
@@ -161,7 +161,7 @@ export default function PriceEstimatorSection() {
 
               {/* Incoming Category */}
               <div
-                className="absolute left-0 top-0 w-full h-full flex items-center text-[#E23744] font-extrabold whitespace-nowrap"
+                className="absolute left-0 top-0 w-full h-full flex items-center justify-center sm:justify-start text-[#E23744] font-extrabold whitespace-nowrap text-xl sm:text-3xl md:text-4xl"
                 style={{
                   transform: isRotating ? "translateY(0%) rotateX(0deg)" : "translateY(100%) rotateX(-45deg)",
                   opacity: isRotating ? 1 : 0,
@@ -253,7 +253,7 @@ export default function PriceEstimatorSection() {
         </div>
 
         {/* Interactive Quick Benchmark Widget (Value-Add Architectural Calculator) */}
-        <div className="mt-12 sm:mt-16 max-w-6xl mx-auto bg-gradient-to-br from-white to-[#F8F9FA] rounded-2xl border border-gray-200/90 p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div className="mt-10 sm:mt-16 max-w-6xl mx-auto bg-gradient-to-br from-white to-[#F8F9FA] rounded-2xl border border-gray-200/90 p-4 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             
             {/* Step 1: BHK Filter Selector */}

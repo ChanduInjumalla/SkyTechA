@@ -84,11 +84,12 @@ export default function Header() {
             {/* Clean Minimalist Brand Logo & Name */}
             <Link
               href="/"
-              className="group flex items-center gap-2.5 sm:gap-3.5 select-none shrink-0"
+              className="group flex items-center gap-2 sm:gap-3 select-none shrink-0"
               aria-label="SkyTech Aluminium - Home"
             >
-              <BrandBadge size="md" />
-              <span className="font-display font-extrabold text-[22px] sm:text-[27px] tracking-tight text-[#1F1F1F]">
+              <BrandBadge size="sm" className="sm:hidden" />
+              <BrandBadge size="md" className="hidden sm:flex" />
+              <span className="font-display font-extrabold text-lg sm:text-[24px] md:text-[27px] tracking-tight text-[#1F1F1F] whitespace-nowrap">
                 SkyTech <span className="text-[#E23744]">Aluminium</span>
               </span>
             </Link>
@@ -296,10 +297,10 @@ export default function Header() {
             </div>
 
             {/* Mobile / Tablet Toggle & Direct Phone */}
-            <div className="flex items-center gap-2 lg:hidden shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
               <a
                 href="tel:9494600741"
-                className="p-2 bg-gray-100 hover:bg-gray-200 text-[#E23744] rounded-full"
+                className="p-2 sm:p-2.5 bg-gray-100 hover:bg-gray-200 text-[#E23744] rounded-full transition-colors"
                 aria-label="Call Sky Tech Windows"
               >
                 <Phone className="w-4 h-4" />
@@ -307,7 +308,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileDrawerOpen(true)}
-                className="p-2 text-gray-800 hover:text-[#E23744] rounded-md hover:bg-gray-100"
+                className="p-2 sm:p-2.5 text-gray-800 hover:text-[#E23744] rounded-lg hover:bg-gray-100 transition-colors"
                 aria-label="Open navigation menu"
               >
                 <Menu className="w-6 h-6" />

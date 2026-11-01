@@ -376,19 +376,20 @@ export default function DesignCatalogPage({ catalog }: Props) {
                     </div>
 
                     {/* Dual Action Buttons (Exact Livspace Style: Outline Red + Solid Red) */}
-                    <div className="grid grid-cols-2 gap-2.5 pt-5 mt-auto">
+                    <div className="grid grid-cols-2 gap-2 pt-4 mt-auto">
                       <button
                         type="button"
                         onClick={() => handleOpenModal(design, "consultation")}
-                        className="w-full py-2 px-2 text-[12px] sm:text-[13px] font-semibold text-[#E23744] bg-white border border-[#E23744] rounded-lg hover:bg-[#FDF2F3] transition-colors text-center truncate"
+                        className="w-full py-2.5 px-1.5 text-[11px] sm:text-[13px] font-semibold text-[#E23744] bg-white border border-[#E23744] rounded-lg hover:bg-[#FDF2F3] transition-colors text-center"
                       >
-                        Book Free Consultation
+                        <span className="sm:hidden">Consult</span>
+                        <span className="hidden sm:inline">Free Consultation</span>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => handleOpenModal(design, "quote")}
-                        className="w-full py-2 px-2 text-[12px] sm:text-[13px] font-semibold text-white bg-[#E23744] hover:bg-[#c92b37] rounded-lg transition-colors text-center shadow-xs truncate"
+                        className="w-full py-2.5 px-1.5 text-[11px] sm:text-[13px] font-semibold text-white bg-[#E23744] hover:bg-[#c92b37] rounded-lg transition-colors text-center shadow-xs"
                       >
                         Get Quote
                       </button>
