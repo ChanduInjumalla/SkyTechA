@@ -84,11 +84,11 @@ export default function Header() {
             {/* Clean Minimalist Brand Logo & Name */}
             <Link
               href="/"
-              className="group flex items-center gap-2.5 sm:gap-3 select-none shrink-0"
+              className="group flex items-center gap-2.5 sm:gap-3.5 select-none shrink-0"
               aria-label="SkyTech Aluminium - Home"
             >
               <BrandBadge size="md" />
-              <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-[#1F1F1F]">
+              <span className="font-display font-extrabold text-[22px] sm:text-[27px] tracking-tight text-[#1F1F1F]">
                 SkyTech <span className="text-[#E23744]">Aluminium</span>
               </span>
             </Link>
@@ -104,7 +104,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setActiveDropdown(activeDropdown === "design-ideas" ? null : "design-ideas")}
-                  className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium tracking-normal transition-colors rounded-md ${
+                  className={`flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-normal transition-colors rounded-md ${
                     activeDropdown === "design-ideas"
                       ? "text-[#E23744]"
                       : "text-[#222222] hover:text-[#E23744]"
@@ -168,7 +168,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setActiveDropdown(activeDropdown === "services" ? null : "services")}
-                  className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium tracking-normal transition-colors rounded-md ${
+                  className={`flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-normal transition-colors rounded-md ${
                     activeDropdown === "services"
                       ? "text-[#E23744]"
                       : "text-[#222222] hover:text-[#E23744]"
@@ -226,7 +226,7 @@ export default function Header() {
               {/* 3. Projects (Direct Link) */}
               <Link
                 href="/projects"
-                className="px-3 py-2 text-sm font-medium tracking-normal text-[#222222] hover:text-[#E23744] transition-colors rounded-md"
+                className="px-3 py-2 text-[15px] font-semibold tracking-normal text-[#222222] hover:text-[#E23744] transition-colors rounded-md"
               >
                 Projects
               </Link>
@@ -234,7 +234,7 @@ export default function Header() {
               {/* 4. Gallery (Direct Link) */}
               <Link
                 href="/3d-visualization"
-                className="px-3 py-2 text-sm font-medium tracking-normal text-[#222222] hover:text-[#E23744] transition-colors rounded-md"
+                className="px-3 py-2 text-[15px] font-semibold tracking-normal text-[#222222] hover:text-[#E23744] transition-colors rounded-md"
               >
                 Gallery
               </Link>
@@ -248,7 +248,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setActiveDropdown(activeDropdown === "more" ? null : "more")}
-                  className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium tracking-normal transition-colors rounded-md ${
+                  className={`flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-normal transition-colors rounded-md ${
                     activeDropdown === "more"
                       ? "text-[#E23744]"
                       : "text-[#222222] hover:text-[#E23744]"
@@ -321,7 +321,7 @@ export default function Header() {
         <div className="hidden lg:block bg-[#FAFAFA] text-xs py-2.5 relative z-10 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             {/* Left Rail Links */}
-            <div className="flex items-center gap-7 text-[#222222] font-medium text-[13px]">
+            <div className="flex items-center gap-7 sm:gap-8 text-[#222222] font-semibold text-[14px]">
               {/* 1. How it works */}
               <Link
                 href="/#how-it-works"

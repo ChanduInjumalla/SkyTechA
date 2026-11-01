@@ -47,7 +47,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           <Link href="/" onClick={onClose} className="select-none flex items-center gap-2.5 group">
             <BrandBadge size="sm" />
             <div>
-              <span className="font-display font-bold text-lg tracking-tight text-[#1F1F1F] block leading-tight">
+              <span className="font-display font-extrabold text-xl tracking-tight text-[#1F1F1F] block leading-tight">
                 SkyTech <span className="text-[#E23744]">Aluminium</span>
               </span>
               <span className="block text-[10px] text-gray-500 font-medium">
