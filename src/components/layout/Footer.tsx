@@ -7,6 +7,7 @@ import {
   Mail,
   ArrowRight,
 } from "lucide-react";
+import { BrandBadge } from "@/components/ui/BrandLogo";
 
 export default function Footer() {
   const currentYear = 2026;
@@ -19,14 +20,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand & Exact NAP Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div>
-              <span className="font-display font-extrabold text-xl tracking-tight text-[#1F1F1F] block">
-                SkyTech <span className="text-[#E23744]">Aluminium</span>
-              </span>
-              <p className="text-xs text-gray-500 mt-1 font-medium">
-                Aluminium • uPVC • Glass • Cladding • Interior Execution
-              </p>
-            </div>
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <BrandBadge size="md" />
+              <div>
+                <span className="font-display font-extrabold text-xl tracking-tight text-[#1F1F1F] block leading-tight">
+                  SkyTech <span className="text-[#E23744]">Aluminium</span>
+                </span>
+                <p className="text-xs text-gray-500 mt-0.5 font-medium">
+                  Aluminium • uPVC • Glass • Cladding • Interior Execution
+                </p>
+              </div>
+            </Link>
 
             <p className="text-xs text-[#666666] leading-relaxed max-w-sm">
               Custom fabrication and engineering systems for luxury residences, commercial high-rises, retail spaces, and institutional facilities across Hyderabad.

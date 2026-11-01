@@ -12,6 +12,7 @@ import {
 import { BUSINESS_INFO, CONTACT_LINKS } from "@/content/business";
 import { X, ChevronDown, Phone, MessageSquare, MapPin, Sparkles, Wrench, MoreHorizontal } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { BrandBadge } from "@/components/ui/BrandLogo";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -43,13 +44,16 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       <div className="relative ml-auto w-full max-w-sm sm:max-w-md bg-white h-full flex flex-col shadow-2xl z-50 text-[#1F1F1F]">
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-white">
-          <Link href="/" onClick={onClose} className="select-none">
-            <span className="font-display font-bold text-lg tracking-tight text-[#1F1F1F]">
-              SkyTech <span className="text-[#E23744]">Aluminium</span>
-            </span>
-            <span className="block text-[10px] text-gray-500 font-medium">
-              Hayathnagar, Hyderabad
-            </span>
+          <Link href="/" onClick={onClose} className="select-none flex items-center gap-2.5 group">
+            <BrandBadge size="sm" />
+            <div>
+              <span className="font-display font-bold text-lg tracking-tight text-[#1F1F1F] block leading-tight">
+                SkyTech <span className="text-[#E23744]">Aluminium</span>
+              </span>
+              <span className="block text-[10px] text-gray-500 font-medium">
+                Hayathnagar, Hyderabad
+              </span>
+            </div>
           </Link>
           <button
             onClick={onClose}

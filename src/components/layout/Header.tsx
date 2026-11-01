@@ -15,6 +15,7 @@ import {
 } from "@/content/navigation";
 import MobileDrawer from "@/components/layout/MobileDrawer";
 import Button from "@/components/ui/Button";
+import { BrandBadge } from "@/components/ui/BrandLogo";
 import {
   Menu,
   Phone,
@@ -80,12 +81,13 @@ export default function Header() {
         <div className="relative z-20 bg-white shadow-[0_3px_12px_rgba(0,0,0,0.06)] border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-18 sm:h-20">
-            {/* Clean Minimalist Brand Name - No Clip-art Icon */}
+            {/* Clean Minimalist Brand Logo & Name */}
             <Link
               href="/"
-              className="group flex items-center select-none shrink-0"
+              className="group flex items-center gap-2.5 sm:gap-3 select-none shrink-0"
               aria-label="SkyTech Aluminium - Home"
             >
+              <BrandBadge size="md" />
               <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-[#1F1F1F]">
                 SkyTech <span className="text-[#E23744]">Aluminium</span>
               </span>
