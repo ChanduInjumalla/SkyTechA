@@ -63,7 +63,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         {/* Scrollable Navigation Body */}
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
           {/* Quick Direct Links */}
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 gap-2">
             <Link
               href="/projects"
               onClick={onClose}
@@ -77,13 +77,6 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               className="flex items-center justify-center px-2 py-2.5 bg-gray-50 hover:bg-[#FDF2F3] rounded-lg text-xs font-bold text-gray-800 hover:text-[#E23744] border border-gray-100"
             >
               Gallery
-            </Link>
-            <Link
-              href="/admin"
-              onClick={onClose}
-              className="flex items-center justify-center px-2 py-2.5 bg-red-50 hover:bg-red-100 rounded-lg text-xs font-bold text-[#E23744] border border-red-100"
-            >
-              Admin
             </Link>
           </div>
 

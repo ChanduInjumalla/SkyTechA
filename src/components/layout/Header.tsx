@@ -285,14 +285,8 @@ export default function Header() {
               </div>
             </nav>
 
-            {/* Desktop Right Cluster - Admin Link & Hyderabad Location Badge */}
+            {/* Desktop Right Cluster - Hyderabad Location Badge */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
-              <Link
-                href="/admin"
-                className="text-xs font-semibold px-2.5 py-1 text-gray-600 hover:text-[#E23744] hover:bg-gray-50 rounded-md transition-colors border border-transparent hover:border-gray-200"
-              >
-                Admin
-              </Link>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700">
                 <MapPin className="w-3.5 h-3.5 text-[#E23744]" />
                 <span>Hyderabad</span>

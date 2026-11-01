@@ -241,10 +241,6 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-4 text-xs font-medium">
-            <Link href="/admin" className="text-[#E23744] hover:underline font-semibold">
-              Admin Portal
-            </Link>
-            <span className="text-gray-300">•</span>
             <Link href="/contact-us" className="hover:text-[#E23744] transition-colors">
               Contact & Map
             </Link>

@@ -3,5 +3,15 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "tailwindCSS.experimental.configFile": "src/app/globals.css"
+  "tailwindCSS.experimental.configFile": "src/app/globals.css",
+  "git.autorefresh": true,
+  "git.autoFetch": false,
+  "git.statusLimit": 500,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/node_modules.nosync/**": true,
+    "**/.next/**": true
+  }
 }
